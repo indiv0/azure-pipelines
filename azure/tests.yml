@@ -9,27 +9,9 @@ parameters:
 jobs:
  - template: test.yml
    parameters:
-     name: cargo_test_stable
-     cross: true # also test on Windows and macOS
-     envs: ${{ parameters.envs }}
-     setup: ${{ parameters.setup }}
-     test_ignored: ${{ parameters.test_ignored }}
-     single_threaded: ${{ parameters.single_threaded }}
-     features: ${{ parameters.features }}
- - template: test.yml
-   parameters:
-     name: cargo_test_beta
-     rust: beta
-     envs: ${{ parameters.envs }}
-     setup: ${{ parameters.setup }}
-     test_ignored: ${{ parameters.test_ignored }}
-     single_threaded: ${{ parameters.single_threaded }}
-     features: ${{ parameters.features }}
- - template: test.yml
-   parameters:
      name: cargo_test_nightly
+     cross: true # also test on Windows and macOS
      rust: nightly
-     allow_fail: true
      envs: ${{ parameters.envs }}
      setup: ${{ parameters.setup }}
      test_ignored: ${{ parameters.test_ignored }}

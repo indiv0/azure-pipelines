@@ -1,4 +1,5 @@
 parameters:
+  rust: 'stable'
   minrust: 1.32.0 # Rust 2018 with uniform paths
   benches: false
   prefix: ''
@@ -26,6 +27,7 @@ stages:
        parameters:
          name: cargo_check
          benches: ${{ parameters.benches }}
+         rust: ${{ parameters.rust }}
          setup: ${{ parameters.setup }}
          all_features: ${{ parameters.check_all_features }}
  - ${{ if ne('false', parameters.minrust) }}:
